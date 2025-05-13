@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 10px;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 40px 1fr 100px;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+header {
+  padding: 1rem;
+  background-color: #9c9c9c;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mouse-template {
+  background-color: red;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 10rem;
+  position: absolute;
+}
+
+button {
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button.stop-btn {
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #ff0055;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button.play-btn {
+  background-color: #333;
+}
+
+.area {
+  background: #ebeaea8e;
+  height: 100%;
+}
+
+.playback-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80rem;
+  height: 60rem;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+.keyboard-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.key-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #242424;
+  color: #fff;
+  width: 6rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

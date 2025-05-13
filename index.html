@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <header>
+      <h1>Action Recorder</h1>
+      <div class="actions">
+        <button id="startBtn">Start</button>
+        <button id="playBtn" class="play-btn">Play</button>
+        <button id="stopBtn" class="stop-btn">Stop</button>
+        <button id="clearBtn">Clear</button>
+      </div>
+    </header>
+    <div id="area" class="area" tabindex="0"></div>
+    <div id="keyboard-stack" class="keyboard-stack">
+      <!-- <div class="key-card">
+        <code>
+          ctrl
+        </code>
+      </div> -->
+    </div>
+    <div id="playback-modal" class="playback-modal">
+      <span class="close">&times;</span>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
