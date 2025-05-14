@@ -32,10 +32,26 @@ header {
 
 .mouse-template {
   background-color: red;
-  height: 4rem;
-  width: 4rem;
+  height: 1rem;
+  width: 1rem;
   border-radius: 10rem;
   position: absolute;
+}
+.mouse-template.click-right {
+  background-color: purple;
+  height: 2rem;
+  width: 2rem;
+}
+.mouse-template.click-left {
+  background-color: green;
+  height: 2rem;
+  width: 2rem;
+}
+
+.mouse-template.touched {
+  background-color: orange;
+  height: 2rem;
+  width: 2rem;
 }
 
 button {
@@ -105,3 +121,4 @@ button.play-btn {
   padding: 1rem;
   border-radius: 0.5rem;
 }
+

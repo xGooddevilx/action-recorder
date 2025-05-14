@@ -1,0 +1,1 @@
+export const blockedKeys = ['F5', "x" , "tab" , "escape" , "r" ,"F11", "F12"];
