@@ -11,7 +11,6 @@ const keyboardStackContainer = document.getElementById(
   "keyboard-stack"
 ) as HTMLDivElement;
 const modal = document.getElementById("playback-modal") as HTMLButtonElement;
-
 const area = document.getElementById("area") as HTMLDivElement;
 
 let startTimeStamp = 0;
@@ -30,22 +29,28 @@ const events = [
 
 const actions: Array<Action> = [];
 
+const handlingStates = () => {
+  playButton.disabled = isRecording || actions.length === 0;
+
+  recordButton.textContent = isRecording ? "Recording..." : "Start";
+  recordButton.disabled = isRecording;
+
+  stopButton.disabled = !isRecording;
+
+  clearButton.disabled = isRecording || actions.length === 0;
+
+  area.style.border = isRecording ? "2px solid red" : "";
+};
+
 const startRecording = () => {
   actions.length = 0;
   startTimeStamp = performance.now();
-
   isRecording = true;
-  recordButton.textContent = "Recording...";
-  recordButton.disabled = true;
-  stopButton.disabled = false;
-  area.style.border = "2px solid red";
+  handlingStates();
 };
 const stopRecording = () => {
   isRecording = false;
-  recordButton.textContent = "Start";
-  recordButton.disabled = false;
-  stopButton.disabled = true;
-  area.style = "";
+  handlingStates();
 };
 
 const recordEvents = () => {
@@ -63,7 +68,6 @@ const recordEvents = () => {
 
       const determineKeyname = (key: string | undefined): string | undefined =>
         key === " " ? "space" : key;
-
       if (event instanceof KeyboardEvent) {
         if (
           blockedKeys.includes(event.key.toLowerCase()) ||
@@ -105,16 +109,19 @@ recordEvents();
 
 const clearActions = () => {
   actions.length = 0;
+  isRecording = false;
   area.innerHTML = "";
   modal.innerHTML = "";
   modal.style.display = "none";
   keyboardStackContainer.innerHTML = "";
-  enteredKeys.clear()
+  enteredKeys.clear();
+
+  handlingStates()
 };
 
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
-playButton.addEventListener("click", ()=>playback({actions}));
+playButton.addEventListener("click", () => playback({ actions }));
 clearButton.addEventListener("click", clearActions);
 
 // For security reasons, nowadays we can't completely override the browser short key apis,
