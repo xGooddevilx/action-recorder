@@ -17,7 +17,8 @@ export type Action = {
   ctrlKey?: boolean;
   shiftKey?: boolean;
   x?:number,
-  y?:number
+  y?:number,
+  isHoldingClick?:boolean
 };
 
 export type Events = MouseEvent | TouchEvent | KeyboardEvent;

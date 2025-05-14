@@ -18,7 +18,7 @@ export const handleMouseAction = (action: Action, area: HTMLDivElement, modal: H
     modal.appendChild(indicator);
   }
   indicator.classList.remove("click-left", "click-right");
-  if (action.type === "mousedown" || action.type === "mouseup") {
+  if (action.type === "mousedown" || action.type === "mouseup" || action.isHoldingClick) {
     indicator.classList.add(
       action.button === "ml" ? "click-right" : "click-left"
     );

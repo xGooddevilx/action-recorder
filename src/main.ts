@@ -17,6 +17,8 @@ const area = document.getElementById("area") as HTMLDivElement;
 
 let startTimeStamp = 0;
 let isRecording = false;
+let isHoldingClick = false
+
 
 const events = [
   "keydown",
@@ -77,11 +79,19 @@ const recordEvents = () => {
         });
       }
       if (event instanceof MouseEvent) {
+        if(event.type === "mousedown"){
+          isHoldingClick = true
+        }
+        if(event.type==='mouseup'){
+          isHoldingClick = false;
+        }
+
         actions.push({
           ...base,
           button: event.button === 0 ? "ml" : "mr",
           x: event.clientX,
           y: event.clientY,
+          isHoldingClick
         });
       }
       if (typeof TouchEvent !== "undefined" && event instanceof TouchEvent) {
