@@ -145,3 +145,7 @@ recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 playButton.addEventListener("click", playback);
 clearButton.addEventListener("click", clearActions);
+
+window.addEventListener('beforeunload',(e)=>{
+  e.preventDefault()
+})
